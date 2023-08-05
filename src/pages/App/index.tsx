@@ -6,6 +6,9 @@ import { MyOrder } from "../MyOrder";
 import { SignIn } from "../SignIn";
 import { NotFound } from "../NotFound";
 
+import { Navbar } from "../../components/Navbar";
+import { Layout } from "../../components/Layout";
+
 const AppRoutes = () => {
   const routes = useRoutes([
     { path: "/", element: <Home /> },
@@ -22,7 +25,10 @@ const AppRoutes = () => {
 export function App() {
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <Layout>
+        <AppRoutes />
+        <Navbar />
+      </Layout>
     </BrowserRouter>
   );
 }
