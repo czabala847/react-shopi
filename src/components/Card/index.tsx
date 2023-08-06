@@ -1,3 +1,4 @@
+import { useAppContext } from "../../context/AppContext";
 import { Products } from "../../interfaces";
 
 interface Props {
@@ -6,6 +7,7 @@ interface Props {
 
 export const Card: React.FC<Props> = ({ product }) => {
   const { category, price, title, images } = product;
+  const { count, onChangeCount } = useAppContext();
 
   return (
     <div className="bg-white cursor-pointer w-56 h-60 rounded-lg">
@@ -18,7 +20,10 @@ export const Card: React.FC<Props> = ({ product }) => {
           alt="headphones"
           className="w-full h-full object-cover rounded-lg"
         />
-        <div className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1">
+        <div
+          onClick={() => onChangeCount(count + 1)}
+          className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1"
+        >
           +
         </div>
       </figure>

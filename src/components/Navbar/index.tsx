@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useAppContext } from "../../context/AppContext";
 
 interface ItemsMenu {
   id: number;
@@ -65,6 +66,8 @@ const routesRight: ItemsMenu[] = [
 ];
 
 export const Navbar = () => {
+  const { count } = useAppContext();
+
   return (
     <nav className="flex justify-between top-0 items-center fixed z-10 w-full py-5 px-8 text-sm font-light">
       <ul className="flex items-center gap-3">
@@ -97,7 +100,7 @@ export const Navbar = () => {
             </NavLink>
           </li>
         ))}
-        <li>🛒 0</li>
+        <li>🛒 {count}</li>
       </ul>
     </nav>
   );
