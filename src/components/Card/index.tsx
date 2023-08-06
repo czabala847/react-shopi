@@ -1,12 +1,20 @@
-export const Card = () => {
+import { Products } from "../../interfaces";
+
+interface Props {
+  product: Products;
+}
+
+export const Card: React.FC<Props> = ({ product }) => {
+  const { category, price, title, images } = product;
+
   return (
     <div className="bg-white cursor-pointer w-56 h-60 rounded-lg">
       <figure className="relative mb-2 w-full h-4/5">
         <span className="absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5">
-          Electronics
+          {category.name}
         </span>
         <img
-          src="https://images.pexels.com/photos/4887246/pexels-photo-4887246.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src={images[0]}
           alt="headphones"
           className="w-full h-full object-cover rounded-lg"
         />
@@ -15,8 +23,8 @@ export const Card = () => {
         </div>
       </figure>
       <p className="flex justify-between">
-        <span className="font-light text-sm">Headphones</span>
-        <span className="font-medium text-lg">$300</span>
+        <span className="font-light text-sm">{title}</span>
+        <span className="font-medium text-lg">${price}</span>
       </p>
     </div>
   );
