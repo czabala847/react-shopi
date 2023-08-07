@@ -11,6 +11,7 @@ import { NotFound } from "../NotFound";
 
 import { Navbar } from "../../components/Navbar";
 import { Layout } from "../../components/Layout";
+import { CheckoutSideMenu } from "../../components/CheckoutSideMenu";
 
 const AppRoutes = () => {
   const routes = useRoutes([
@@ -32,6 +33,7 @@ export function App() {
         <Layout>
           <AppRoutes />
           <Navbar />
+          <CheckoutSideMenu />
         </Layout>
       </AppProvider>
     </BrowserRouter>
